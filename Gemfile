@@ -5,9 +5,17 @@ gem 'rails', '4.0.2'
 
 # Use sqlite3 as the database for Active Record
 
-group :development, :test do
   gem 'sqlite3', '1.3.8'
+group :development, :test do
+#  gem 'pg', '0.15.1'
+  gem 'guard-rspec', '2.5.0'
+  gem 'listen', '1.3.0'
+#  gem 'guard', '1.1'
+#  gem 'sqlite3', '1.3.8'
   gem 'rspec-rails', '2.13.1'
+  gem 'spork-rails', '4.0.0'
+  gem 'guard-spork', '1.5.0'
+  gem 'childprocess', '0.3.6'
 end
 
 group :test do
