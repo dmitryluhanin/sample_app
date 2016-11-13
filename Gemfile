@@ -17,8 +17,9 @@ group :development, :test do
   gem 'guard-spork', '1.5.0'
   gem 'childprocess', '0.3.6'
 end
-
+  gem 'sprockets', '=2.11.0'
   gem 'bootstrap-sass', '2.3.2.0'
+#  gem 'bootstrap-sass'
 
 group :test do
   gem 'selenium-webdriver', '2.35.1'
