@@ -5,7 +5,7 @@ describe "UserPages" do
 
   describe "Singup page" do
     before { visit singup_path}
-    it { should have_content('Sing Up') }
-    it { should have_title(full_title('Sign up')) }
+    it { should have_content('Sing up') }
+    it { should have_title(full_title('Sing up')) }
     end
   end

@@ -2,16 +2,12 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
+gem 'pg', '0.15.1'
 
-# Use sqlite3 as the database for Active Record
-
-  gem 'sqlite3', '1.3.8'
 group :development, :test do
-#  gem 'pg', '0.15.1'
+  gem 'pg', '0.15.1'
   gem 'guard-rspec', '2.5.0'
   gem 'listen', '1.3.0'
-#  gem 'guard', '1.1'
-#  gem 'sqlite3', '1.3.8'
   gem 'rspec-rails', '2.13.1'
   gem 'spork-rails', '4.0.0'
   gem 'guard-spork', '1.5.0'
@@ -19,9 +15,9 @@ group :development, :test do
 end
   gem 'sprockets', '=2.11.0'
   gem 'bootstrap-sass', '2.3.2.0'
-#  gem 'bootstrap-sass'
 
 group :test do
+  gem 'pg', '0.15.1'
   gem 'selenium-webdriver', '2.35.1'
   gem 'capybara', '2.1.0'
 end
