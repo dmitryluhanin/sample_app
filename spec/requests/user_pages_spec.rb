@@ -32,16 +32,44 @@ describe "UserPages" do
 
     describe "with valid information" do
       before do
-        fill_in "Name",         with: "Example User"
+        fill_in "Name",         with: "Dmitry"
         fill_in "Email",        with: "user@example.com"
         fill_in "Password",     with: "foobar"
         fill_in "Confirmation", with: "foobar"
       end
+    
+    describe "after saving the user" do
+      before {click_button submit}
+      let(:user) {User.find_by(email: 'example@example.com')}
+
+      it {should have_link ('Sign out')}
+      it {should have_title (user.name)}
+      it {should have_selector('div.alert.alert-success', text: 'Welcome')}
+    end
 
       it "should create a user" do
         expect { click_button submit }.to change(User, :count).by(1)
       end
     end
   end
+  describe "signup" do
+    before { visit signup_path }
+    describe "with invalid information" do
+      before do
+        fill_in "Name",         with: ""
+        fill_in "Email",        with: ""
+        fill_in "Password",     with: ""
+        fill_in "Confirmation", with: ""
+      end
 
+    describe "after submission" do
+        before { click_button "Create my account" }
+
+        it { should have_title('Sing up') }
+        it { should have_content('The form contains 5 errors.') }
+        it { should have_content('Name can\'t be blank') }
+        it { should have_content('Email is invalid') }
+      end
+    end
+  end
 end
