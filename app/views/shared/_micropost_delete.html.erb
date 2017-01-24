@@ -1,0 +1,5 @@
+<% if current_user?(usr.user) %>
+    <%= link_to "delete", usr, method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     title: usr.content %>
+  <% end %>
