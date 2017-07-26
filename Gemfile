@@ -34,9 +34,9 @@ group :test do
   gem 'database_cleaner', github: 'bmabey/database_cleaner'
 end
 
-group :doc do
-  gem 'sdoc','0.3.20' ,require: false
-end
+#group :doc do
+#  gem 'sdoc','0.3.20' ,require: false
+#end
 
 group :production do
   gem 'pg', '0.15.1'
