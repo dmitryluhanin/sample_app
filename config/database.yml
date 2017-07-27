@@ -18,10 +18,10 @@ default: &default
   adapter: postgresql
   encoding: unicode
   host: localhost
-  user: postgres
+  user: ruby
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: gor0shEk
 
 development:
   <<: *default
@@ -82,6 +82,6 @@ test:
 #
 production:
   <<: *default
-  database: zomg_production
-  username: zomg
-  password: <%= ENV['ZOMG_DATABASE_PASSWORD'] %>
+  database: rails_blog
+  username: ruby
+  password: gor0shEk
