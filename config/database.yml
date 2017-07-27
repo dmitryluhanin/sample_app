@@ -3,7 +3,7 @@ default: &default
   adapter: postgresql
   encoding: unicode
   host: railsblog.postgres.database.azure.com
-  user: ruby
+  user: ruby@railsblog
   pool: gor0shEk
 
 development:
@@ -17,5 +17,5 @@ test:
 production:
   <<: *default
   database: railsblog
-  username: ruby
+  username: ruby@railsblog
   password: gor0shEk
