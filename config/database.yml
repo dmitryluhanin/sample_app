@@ -2,8 +2,8 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: railsblog.postgres.database.azure.com
-  user: ruby@railsblog
+  host: 40.68.36.143
+  user: ruby
   pool: gor0shEk
   port: 5432
   sslmode: require
@@ -19,5 +19,5 @@ test:
 production:
   <<: *default
   database: railsblog
-  username: ruby@railsblog
+  username: ruby
   password: gor0shEk
