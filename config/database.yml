@@ -10,14 +10,14 @@ default: &default
 
 development:
   <<: *default
-  database: railsblog
+  database: rubyblog
 
 test:
   <<: *default
-  database: railsblog
+  database: rubyblog
 
 production:
   <<: *default
-  database: railsblog
+  database: rubyblog
   username: ruby
   password: gor0shEk
