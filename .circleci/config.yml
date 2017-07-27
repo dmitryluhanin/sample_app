@@ -8,7 +8,13 @@ jobs:
     docker:
       # specify the version you desire here
        - image: circleci/ruby:2.4.1-node-browsers
-      
+       environment:
+          PGHOST: 40.68.36.143
+          PGUSER: ruby
+       environment:
+          POSTGRES_USER: ruby
+          POSTGRES_DB: rubyblog
+          POSTGRES_PASSWORD: "gor0shEk"
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
