@@ -5,6 +5,8 @@ default: &default
   host: railsblog.postgres.database.azure.com
   user: ruby@railsblog
   pool: gor0shEk
+  port=5432
+  sslmode=require
 
 development:
   <<: *default
