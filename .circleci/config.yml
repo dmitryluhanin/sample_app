@@ -2,8 +2,7 @@ version: 2
 jobs:
   build:
     machine:
-      enabled: true
-        image: circleci/classic:latest
+      image: circleci/classic:edge
   dependencies:
   override:
     - docker info
