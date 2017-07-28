@@ -54,7 +54,9 @@ jobs:
 
       - run:
           name: Database setup
-          command: bin/rails db:schema:load --trace
+          command: 
+          bundle exec rake db:create db:schema:load --trace
+          bundle exec rake db:migrate
 
       - run:
           name: Run tests
