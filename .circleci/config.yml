@@ -1,32 +1,63 @@
 version: 2
 jobs:
-    build:
-      ruby:
-      version: 2.3
-      docker:
-        - image: circleci/ruby:2.3
-    machine: true 
-    services:
-    - docker
+  build:
+    working_directory: ~/myapp
+    docker:
+      - image: circleci/ruby:2.3-node
+        environment:
+          PGHOST: 127.0.0.1
+          PGUSER: myapp-test
+          RAILS_ENV: test
+      - image: circleci/postgres:9.5-alpine
+        environment:
+          POSTGRES_USER: myapp
+          POSTGRES_DB: myapp-test
+          POSTGRES_PASSWORD: ""
+    steps:
+      - checkout
 
-dependencies:
-  override:
-    - docker info
-    - docker build --rm=false -t circleci/elasticsearch .
+      - restore_cache:
+          name: Restore bundle cache
+          keys:
+            - myapp-bundle-{{ checksum "Gemfile.lock" }}
+            - myapp-bundle-
+     
+      - run:
+          name: Bundle Install
+          command: bin/bundle check --path vendor/bundle ||  bin/bundle install --path vendor/bundle --jobs 4 --retry 3
 
-test:
-  override:
-    - docker run -d -p 9200:9200 circleci/elasticsearch; sleep 10
-    - curl --retry 10 --retry-delay 5 -v http://localhost:9200
+      - run:
+          name: Yarn Install
+          command: yarn install
 
-deployment:
-  hub:
-    branch: master
-    commands:
-      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - docker push circleci/elasticsearch
-steps:
+      - save_cache:
+          name: Store bundle cache
+          key: myapp-bundle-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
 
-- run:
-  name: First step    
-  command: echo "step"
+      - save_cache:
+          name: Store yarn cache
+          key: myapp-yarn-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.yarn-cache
+ 
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+          
+      - run:
+          name: Prepare DB config
+          command: mv config/database.ci.yml config/database.yml 
+  
+      - run:
+          name: Database setup
+          command: bundle exec rake db:create db:schema:load --trace && bundle exec rake db:migrate
+
+      - run: 
+          name: Save Docker
+          command: mkdir -p /tmp/caches && docker save -o /tmp/caches/app.tar app
+   
+      - run:
+          name: Run tests
+          command: bundle exec rspec 
