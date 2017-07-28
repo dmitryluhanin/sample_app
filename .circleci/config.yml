@@ -3,9 +3,6 @@ jobs:
   build:
     machine:
       image: circleci/classic:edge
-  dependencies:
-  override:
-    - docker info
    steps:
         - run:
           name: Running tests
