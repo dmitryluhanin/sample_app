@@ -2,8 +2,8 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: 40.68.36.143
-  user: ruby
+  host: $PGHOST
+  user: $PGUSER
   pool: gor0shEk
   port: 5432
   sslmode: require
@@ -14,7 +14,7 @@ development:
 
 test:
   <<: *default
-  database: rubyblog
+  database: db_name
 
 production:
   <<: *default
