@@ -6,4 +6,7 @@ jobs:
   dependencies:
   override:
     - docker info
-   
+   steps:
+        - run:
+          name: Running tests
+          command: echo test
