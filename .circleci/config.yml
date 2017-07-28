@@ -1,5 +1,12 @@
-machine:
-  services:
+version: 2
+jobs:
+    build:
+      ruby:
+      version: 2.3
+      docker:
+        - image: circleci/ruby:2.3
+    machine: true 
+    services:
     - docker
 
 dependencies:
