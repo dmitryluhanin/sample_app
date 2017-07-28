@@ -1,0 +1,6 @@
+test:
+  adapter:  postgresql
+  database: myapp-test
+  username: myapp
+  password: 
+  encoding: unicode
