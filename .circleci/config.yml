@@ -54,6 +54,20 @@ jobs:
           name: Database setup
           command: bundle exec rake db:create db:schema:load --trace && bundle exec rake db:migrate
 
+      - run: 
+          name: Save Docker
+          caommnd: |
+            mkdir -p /caches
+            docker save -o /caches/app.tar app
+            
+       - save_cache:
+          key: v1-{{ .Branch }}-{{ epoch }}
+          paths:
+            - /caches/app.tar
+           
+       
+            
+
       - run:
           name: Run tests
           command: bundle exec rspec 
