@@ -58,14 +58,6 @@ jobs:
           name: Save Docker
           command: mkdir -p /caches && docker save -o /caches/app.tar app
    
-       - save_cache:
-          key: v1-{{ .Branch }}-{{ epoch }}
-          paths:
-            - /caches/app.tar
-           
-       
-            
-
       - run:
           name: Run tests
           command: bundle exec rspec 
