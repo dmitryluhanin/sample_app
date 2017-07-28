@@ -56,7 +56,7 @@ jobs:
 
       - run: 
           name: Save Docker
-          command: mkdir -p /caches && docker save -o /caches/app.tar app
+          command: mkdir -p /tmp/caches && docker save -o /tmp/caches/app.tar app
    
       - run:
           name: Run tests
