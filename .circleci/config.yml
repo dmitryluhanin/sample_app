@@ -21,13 +21,7 @@ jobs:
           keys:
             - myapp-bundle-{{ checksum "Gemfile.lock" }}
             - myapp-bundle-
-
-      - restore_cache:
-          name: Restore yarn cache
-          keys:
-            - myapp-yarn-{{ checksum "yarn.lock" }}
-            - myapp-yarn-
-
+     
       - run:
           name: Bundle Install
           command: bin/bundle check --path vendor/bundle ||  bin/bundle install --path vendor/bundle --jobs 4 --retry 3
