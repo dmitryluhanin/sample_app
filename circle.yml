@@ -7,6 +7,11 @@ dependencies:
     - docker info
     - docker build --rm=false -t dmitry4luhanin/railstest -f .circleci/images/primary/Dockerfile .
 
+database:
+  override:
+    - mv config/database.ci.yml config/database.yml
+    - bundle exec rake db:create db:schema:load --trace
+
 test:
   override:
     - docker run -d -p 3000:3000 dmitry4luhanin/railstest; sleep 10
