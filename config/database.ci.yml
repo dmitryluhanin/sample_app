@@ -1,6 +1,23 @@
-test:
-  adapter:  postgresql
-  database: myapp-test
-  username: myapp
-  password: 
+default: &default
+  adapter: postgresql
   encoding: unicode
+  host: 52.174.2.80
+  user: ruby
+  port: 5432
+  password: gor0shEk
+  sslmode: require
+
+development:
+  <<: *default
+  database: rubyblog
+
+test:
+  <<: *default
+  database: db_name
+
+production:
+  <<: *default
+  database: rubyblog
+  username: ruby
+  password: gor0shEk
+
