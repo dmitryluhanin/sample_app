@@ -10,6 +10,7 @@ dependencies:
 database:
   override:
     - mv config/database.ci.yml config/database.yml
+    - gem install bundler --pre
     - bundle exec rake db:create db:schema:load --trace
 
 test:
