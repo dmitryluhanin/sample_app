@@ -4,6 +4,7 @@ machine:
 
 dependencies:
   override:
+    - echo "test"
     - docker info
     - docker build --rm=false -t dmitry4luhanin/railstest -f .circleci/images/primary/Dockerfile .
 
