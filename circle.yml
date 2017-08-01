@@ -19,7 +19,8 @@ database:
 test:
   override:
     - docker run -d -p 3000:3000 dmitry4luhanin/railstest; sleep 10
-    - curl --retry 10 --retry-delay 5 -v http://localhost:3000
+    - docker ps -a
+    - docker run dmitry4luhanin/railstest /bin/sh -c "cd /myapp; bundle exec rake test"
 
 deployment:
   hub:
