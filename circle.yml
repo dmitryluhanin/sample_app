@@ -20,7 +20,7 @@ test:
   override:
     - docker run -d -p 3000:3000 dmitry4luhanin/railstest; sleep 10
     - docker ps -a
-    - docker run dmitry4luhanin/railstest /bin/sh -c "cd /myapp; bundle exec rspec "
+    - docker run dmitry4luhanin/railstest /bin/sh -c "cd /myapp; ls -la "
 
 deployment:
   hub:
