@@ -13,6 +13,7 @@ database:
     - mv config/database.ci.yml config/database.yml
     - gem install bundler --pre
     - gem install rake -v 11.3.0 --pre
+    - bundle install
     - bundle exec rake db:create db:schema:load --trace
 
 test:
