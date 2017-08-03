@@ -19,6 +19,7 @@ database:
 test:
   override:
     - docker run -d -p 3000:3000 dmitry4luhanin/railstest; sleep 10
+    - bundle exec rake test:prepare 
     - bundle install
     - COVERALLS_REPO_TOKEN=wyj29h53XS9SCEOG6w7JnWflEGbvaThQd bundle exec rspec spec
 
