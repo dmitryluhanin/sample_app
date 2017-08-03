@@ -141,14 +141,7 @@ describe "micropost associations" do   # 22-01-2017 19-30
     it "should have the right microposts in the right order" do
       expect(@user.microposts.to_a).to eq [newer_micropost, older_micropost]
     end
-    it "should destroy associated microposts" do
-      microposts = @user.microposts.to_a
-      @user.destroy
-      expect(microposts).not_to be_empty
-      microposts.each do |micropost|
-        expect(Micropost.where(id: micropost.id)).to be_empty
-      end
-    end
+   
     describe "status" do
       let(:unfollowed_post) do
         FactoryGirl.create(:micropost, user: FactoryGirl.create(:user))
