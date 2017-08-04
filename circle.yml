@@ -14,7 +14,6 @@ database:
     - gem install bundler --pre
     - gem install rake -v 11.3.0 --pre
     - bundle install
-    - rake assets:precompile 
     - bundle exec rake db:create db:schema:load --trace
 
 test:
