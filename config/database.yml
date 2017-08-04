@@ -2,10 +2,10 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: 52.178.47.96
+  host: 195.69.187.166
   user: ruby
   port: 5432
-  password: gor0shEk
+  password: gor0shek
   sslmode: require
 
 development:
