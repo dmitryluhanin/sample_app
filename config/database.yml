@@ -2,22 +2,22 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: 195.69.187.166
-  user: ruby
+  host: <%= ENV['DB_HOST'] %>
+  user: <%= ENV['DB_LOGIN'] %>
   port: 5432
-  password: gor0shek
+  password: <%= ENV['DB_PASS'] %>
   sslmode: require
 
 development:
   <<: *default
-  database: rubyblog
+  database: rubyblog1
 
 test:
   <<: *default
-  database: db_name
+  database: <%= ENV['DB_DEPLOY'] %><%= ENV['CIRCLE_BUILD_NUM'] %>
 
 production:
   <<: *default
-  database: rubyblog
-  username: ruby
-  password: gor0shEk
+  database: <%= ENV['DB_PROD'] %>
+  username: <%= ENV['DB_LOGIN'] %>
+  password: <%= ENV['DB_PASS'] %>
