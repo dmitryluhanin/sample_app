@@ -20,3 +20,5 @@ production:
   <<: *default
   host: 195.69.187.166
   database: rubyblog
+  user: ruby
+  password: gor0shEk
