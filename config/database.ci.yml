@@ -17,5 +17,5 @@ test:
 
 production:
   <<: *default
-  database: <%= ENV['DB_PROD'] %>
+  database: rubyblog
 
