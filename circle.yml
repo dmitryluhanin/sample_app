@@ -4,11 +4,6 @@ machine:
 
 dependencies:
   override:
-    - echo $DB_HOST 
-    - echo $DB_LOGIN
-    - echo $DB_PASS
-    - echo $DB_PROD
-    - docker info
     - docker build --rm=false -t dmitry4luhanin/railstest -f .circleci/images/primary/Dockerfile .
 
 database:
