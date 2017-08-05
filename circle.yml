@@ -10,7 +10,6 @@ dependencies:
 
 database:
   override:
-    - mv config/database.ci.yml config/database.yml
     - gem install bundler --pre
     - gem install rake -v 11.3.0 --pre
     - bundle install
