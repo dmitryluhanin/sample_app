@@ -18,5 +18,5 @@ test:
 
 production:
   <<: *default
-  host: <%= ENV['DB_HOST'] %>
-  database: <%= ENV['DB_PROD'] %>
+  host: 195.69.187.166
+  database: rubyblog
