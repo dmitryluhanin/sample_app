@@ -3,13 +3,10 @@ default: &default
   encoding: unicode
   port: 5432
   sslmode: require
-
-  host: 195.69.187.166
-  database: rubyblog
-  user: ruby
-  password: gor0shEk
-
-
+  host:  <%= ENV['DB_HOST'] %>
+  user:  <%= ENV['DB_USER'] %>
+  password:  <%= ENV['DB_PASS'] %>
+  
 development:
   <<: *default
   database: rubyblog1
@@ -20,7 +17,7 @@ test:
 
 production:
   <<: *default
-  host: 195.69.187.166
-  database: rubyblog
-  user: ruby
-  password: gor0shEk
+  host:  <%= ENV['DB_HOST'] %>
+  database:  <%= ENV['DB_PROD'] %>
+  user:  <%= ENV['DB_USER'] %>
+  password:  <%= ENV['DB_PASS'] %>
