@@ -1,7 +1,3 @@
-echo "Login to Docker Hub"
-echo "Login docker hub with $DOCKER_USER and $DOCKER_EMAIL"
-docker login -u $2 -p $3
-
 echo "Docker stop"
 docker stop railstest
 
