@@ -3,9 +3,9 @@ default: &default
   encoding: unicode
   port: 5432
   sslmode: require
-  host:  <%= ENV['DB_HOST'] %>
-  user:  <%= ENV['DB_LOGIN'] %>
-  password:  <%= ENV['DB_PASS'] %>
+  host: 195.69.187.166
+  user: ruby
+  password: gor0shek
   
 development:
   <<: *default
@@ -17,7 +17,7 @@ test:
 
 production:
   <<: *default
-  host:  195.69.187.166
-  database:  railsblog
-  user:  ruby
-  password:  gor0shek
+  host: 195.69.187.166
+  user: ruby
+  password: gor0shek
+  database: railsblog
