@@ -13,7 +13,7 @@ echo "pulling latest version of the code"
 docker pull dmitry4luhanin/railstest:latest
 
 echo "starting the new version"
-docker run --name railstest -p 3000:3000 dmitry4luhanin/railstest:latest
+docker run --name railstest -d -p 3000:3000 dmitry4luhanin/railstest:latest
 
 echo "success!"
 
