@@ -12,5 +12,6 @@ echo "starting the new version"
 docker run --name railstest -d -p 80:3000 dmitry4luhanin/railstest:latest
 
 echo "success!"
+echo "new change"
 
 exit 0
